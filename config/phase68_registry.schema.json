@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scrollverse.co/schemas/phase68-registry.schema.json",
+  "title": "ScrollVerse Phase 68 Registry",
+  "description": "Machine-readable validation schema for the Phase 68 baseline registry. This schema validates structure; it does not independently verify deployment or external claims.",
+  "type": "object",
+  "required": [
+    "phase_identity",
+    "structural_data_modules",
+    "five_stage_verification_model",
+    "classification_system",
+    "metadata"
+  ],
+  "properties": {
+    "phase_identity": {
+      "type": "object",
+      "required": ["label", "initialization_timestamp", "independent_verification_performed", "verification_status", "classification"],
+      "properties": {
+        "label": {"const": "PHASE_68_BASELINE"},
+        "initialization_timestamp": {"type": "string", "format": "date-time"},
+        "independent_verification_performed": {"type": "boolean"},
+        "verification_status": {"type": "string"},
+        "classification": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "structural_data_modules": {
+      "type": "object",
+      "required": ["ledger_stream_verification", "omniland_virtualization_parameters", "institutional_memory_ingestion"],
+      "additionalProperties": true,
+      "properties": {
+        "ledger_stream_verification": {"$ref": "#/$defs/module"},
+        "omniland_virtualization_parameters": {"$ref": "#/$defs/module"},
+        "institutional_memory_ingestion": {"$ref": "#/$defs/module"}
+      }
+    },
+    "five_stage_verification_model": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"$ref": "#/$defs/verificationStage"}
+    },
+    "classification_system": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": "string", "minLength": 1}
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["created_at", "purpose", "discipline", "honesty", "next_phase"],
+      "properties": {
+        "created_at": {"type": "string", "format": "date-time"},
+        "purpose": {"type": "string"},
+        "discipline": {"type": "string"},
+        "honesty": {"type": "string"},
+        "next_phase": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "module": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "verificationStage": {
+      "type": "object",
+      "required": ["status", "description"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["PROPOSED", "IN_PROGRESS", "VERIFIED", "PENDING", "BLOCKED", "NOT_APPLICABLE"]
+        },
+        "description": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    }
+  }
+}
