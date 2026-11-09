@@ -24,7 +24,9 @@ Status: IMPLEMENTATION IN REVIEW — OPEN DRAFT PR
 ## Validation evidence
 - Run `42683605411`, commit `083481462b6f0aa5e8b1f84ba6bba8250361957a`: TypeScript check PASS; 2 test files PASS; 9 tests PASS.
 - A later small change on the current head adds source URL and updated timestamp fields to the search result projection.
-- Run `42683650557`, current head `bbe267cd2a3d738f9a868b7116c352f955bc9c76`: IN PROGRESS at last inspection. Do not mark the latest head validated until this run completes successfully.
+- Run `42683650557`, current head `bbe267cd2a3d738f9a868b7116c352f955bc9c76`: SUCCESS. TypeScript check PASS; 2 test files PASS; 9 tests PASS.
+- Vercel pull-request status check on the current head: SUCCESS. This is a PR check, not independent confirmation of a production deployment.
+- PR #7 remains OPEN / DRAFT and has not been merged.
 - An earlier run failed on implicit-any callback types and a Map iterator target issue; these were corrected, and the subsequent run passed.
 
 ## Not yet done
