@@ -1,0 +1,210 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scrollverse.example/schemas/artifact-manifest.schema.json",
+  "title": "ScrollVerse Artifact Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_id",
+    "created_at",
+    "artifact_type",
+    "title",
+    "origin",
+    "files",
+    "preservation"
+  ],
+  "properties": {
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "artifact_type": {
+      "enum": [
+        "image",
+        "video",
+        "audio",
+        "document",
+        "source_code",
+        "contract",
+        "dataset",
+        "website",
+        "other"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "origin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "creator",
+        "source_reference"
+      ],
+      "properties": {
+        "creator": {
+          "type": "string"
+        },
+        "source_reference": {
+          "type": "string"
+        },
+        "repository": {
+          "type": "string"
+        },
+        "commit": {
+          "type": "string"
+        },
+        "parent_artifact_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path_or_uri",
+          "media_type",
+          "sha256"
+        ],
+        "properties": {
+          "path_or_uri": {
+            "type": "string",
+            "minLength": 1
+          },
+          "media_type": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{64}$"
+          },
+          "size_bytes": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "tool": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "model_version": {
+          "type": "string"
+        },
+        "prompt_reference": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "object"
+        }
+      }
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "rights_holder": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "permission_status": {
+          "enum": [
+            "confirmed",
+            "user_supplied",
+            "pending",
+            "restricted",
+            "unknown"
+          ]
+        },
+        "evidence_reference": {
+          "type": "string"
+        }
+      }
+    },
+    "preservation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "local_only",
+            "committed",
+            "pinned",
+            "archived",
+            "verified",
+            "unknown"
+          ]
+        },
+        "content_identifier": {
+          "type": "string"
+        },
+        "storage_provider": {
+          "type": "string"
+        },
+        "pin_or_archive_reference": {
+          "type": "string"
+        },
+        "verified_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "publication": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "status"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri"
+          },
+          "status": {
+            "enum": [
+              "draft",
+              "published",
+              "removed",
+              "unknown"
+            ]
+          },
+          "observed_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  }
+}

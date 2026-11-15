@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scrollverse.example/schemas/signal.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "ScrollVerse Signal",
+  "required": [
+    "signal_id",
+    "observed_at",
+    "source",
+    "signal_type",
+    "observation",
+    "status"
+  ],
+  "properties": {
+    "signal_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observed_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "reference"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "user",
+            "community",
+            "analytics",
+            "support",
+            "repository",
+            "system",
+            "partner",
+            "other"
+          ]
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "content_hash": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "signal_type": {
+      "enum": [
+        "audience_feedback",
+        "support_request",
+        "creator_direction",
+        "analytics",
+        "incident",
+        "repository_change",
+        "business_requirement",
+        "research",
+        "other"
+      ]
+    },
+    "observation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "interpretation": {
+      "type": "string"
+    },
+    "confidence": {
+      "enum": [
+        "unknown",
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "sensitivity": {
+      "enum": [
+        "public",
+        "internal",
+        "confidential",
+        "restricted"
+      ]
+    },
+    "impact": {
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical",
+        "unknown"
+      ]
+    },
+    "owner": {
+      "type": "string"
+    },
+    "proposed_action": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "new",
+        "triaged",
+        "accepted",
+        "deferred",
+        "rejected",
+        "converted_to_task",
+        "closed"
+      ]
+    },
+    "related_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  }
+}
