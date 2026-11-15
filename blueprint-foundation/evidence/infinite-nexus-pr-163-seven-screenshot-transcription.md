@@ -113,3 +113,18 @@ Visible content, as transcribed:
 ## Provenance
 
 The seven descriptions above were supplied by the repository owner in a ChatGPT conversation on 2026-11-14. Wording is preserved as transcribed, including apparent grammatical anomalies. This document is an additive evidence note and does not modify original screenshots, source code, README files, or PR history.
+
+
+## Owner-provided precision addendum — 2026-11-14
+
+The repository owner supplied a further consolidated reading of the seven screenshots. Preserve this as an additive clarification; do not replace the original transcription or treat it as independent screenshot inspection.
+
+1. **Contributor Rewards Summary:** 20 contribution points; “2000 test tokens” is explicitly a simulated reward.
+2. **Divine Integration Complete:** the message says successfully merged and names the Impact Cascade.
+3. **Sacred Pull Request Received:** the notification references the Infinite-Nexus-ScrollVerse CI/CD Pipeline workflow.
+4. **What Happens Next:** Automated Validation, Manifesto Guardian Protocol, Human Review, then Integration.
+5. **Welcome to ScrollVerse:** the welcome message references 528Hz.
+6. **Pre-Merge Checklist:** the owner identifies the displayed palette as “Arcturian Colors”: `#528BFF`, `#FFD700`, `#00FFAA`, alongside sacred geometry / phi `1.618`. This records the screenshot's terminology and the owner's transcription; it does not independently establish the origin of the colors or geometry.
+7. **Inbox list:** the owner specifies the displayed time window as 7:13 PM–7:14 PM and identifies Infinite-Nexus-ScrollVerse entries, plus separate Stripe and Manus Team entries.
+
+**Evidence boundary:** This addendum records the owner's supplied reading. Original screenshot files, image hashes, timestamps, email headers, workflow run IDs, and transaction evidence remain separate verification items. The 2,000 test-token reward remains simulated unless independent ledger evidence establishes otherwise.
