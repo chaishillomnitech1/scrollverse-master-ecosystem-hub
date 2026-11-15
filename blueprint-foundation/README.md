@@ -31,3 +31,5 @@ Schema definitions only. Validation fixtures, an append-only event store, CI enf
 ## Navigable blueprint artifact
 
 Open the [Agent-Native Production Factory HTML artifact](index.html) for the direct architecture entry point, including Pleroma completeness, the authorized Kun Fayakun canon lifecycle, verifiable proof, schema links, the seven-screenshot evidence record, and the related GitHub blueprint issues and PRs.
+
+- [Artifact-to-GitHub intake workflow](ARTIFACT_INGESTION_WORKFLOW.md) — preserve and catalog HTML artifacts, lookbooks, and site builds with direct repository links and proof records.
