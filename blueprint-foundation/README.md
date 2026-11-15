@@ -27,3 +27,7 @@ These files are initial schema version `1.0.0`. Breaking changes require a new v
 ## Status
 
 Schema definitions only. Validation fixtures, an append-only event store, CI enforcement, dashboards, and runtime adapters are subsequent implementation stages.
+
+## Navigable blueprint artifact
+
+Open the [Agent-Native Production Factory HTML artifact](index.html) for the direct architecture entry point, including Pleroma completeness, the authorized Kun Fayakun canon lifecycle, verifiable proof, schema links, the seven-screenshot evidence record, and the related GitHub blueprint issues and PRs.
