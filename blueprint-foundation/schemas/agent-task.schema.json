@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scrollverse.example/schemas/agent-task.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "ScrollVerse Agent Task",
+  "required": [
+    "task_id",
+    "created_at",
+    "agent_id",
+    "specialty",
+    "objective",
+    "permissions",
+    "status",
+    "provenance"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "agent_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "agent_name": {
+      "type": "string"
+    },
+    "specialty": {
+      "type": "string",
+      "minLength": 1
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "configuration_hash": {
+          "type": "string",
+          "pattern": "^[a-fA-F0-9]{64}$"
+        }
+      }
+    },
+    "permissions": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "read_public",
+          "read_private_authorized",
+          "propose_changes",
+          "write_branch",
+          "open_pull_request",
+          "publish_nonproduction",
+          "publish_production_approved",
+          "financial_action_approved",
+          "contract_action_approved"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "prohibited_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "status": {
+      "enum": [
+        "queued",
+        "in_progress",
+        "blocked",
+        "review_required",
+        "completed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "reviewer": {
+      "type": "string"
+    },
+    "approval_reference": {
+      "type": "string"
+    },
+    "output_references": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "origin",
+        "recorded_at"
+      ],
+      "properties": {
+        "origin": {
+          "type": "string"
+        },
+        "recorded_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "input_hashes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-fA-F0-9]{64}$"
+          }
+        }
+      }
+    }
+  }
+}
