@@ -38,3 +38,5 @@ Open the [Agent-Native Production Factory HTML artifact](index.html) for the dir
 ## Master artifact catalog
 
 - [Discovered HTML, lookbook, and visual-collection inventory (2026-11-14)](catalog/discovered-artifact-inventory-2026-11-14.md) — first-pass GitHub code-search register of 90 HTML files and 48 lookbook/evolution/visual-collection references. Each entry retains its owning repository, source path, commit-pinned source URL, and current verification boundary. SHA-256 and live-deployment checks remain pending; this discovery register does not claim exhaustive coverage of private, unindexed, local, external, binary, or conversation-only artifacts.
+
+- [Meta Facebook + Instagram exhaustive archive specification](catalog/meta-social-archive-ingestion.md) — post/media/engagement scope, provenance, source-export handling, per-item SHA-256, safe repository routing, and reconciliation states. Current state: awaiting official export or authorized source access; no account content has been fetched yet.
