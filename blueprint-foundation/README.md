@@ -33,3 +33,8 @@ Schema definitions only. Validation fixtures, an append-only event store, CI enf
 Open the [Agent-Native Production Factory HTML artifact](index.html) for the direct architecture entry point, including Pleroma completeness, the authorized Kun Fayakun canon lifecycle, verifiable proof, schema links, the seven-screenshot evidence record, and the related GitHub blueprint issues and PRs.
 
 - [Artifact-to-GitHub intake workflow](ARTIFACT_INGESTION_WORKFLOW.md) — preserve and catalog HTML artifacts, lookbooks, and site builds with direct repository links and proof records.
+
+
+## Master artifact catalog
+
+- [Discovered HTML, lookbook, and visual-collection inventory (2026-11-14)](catalog/discovered-artifact-inventory-2026-11-14.md) — first-pass GitHub code-search register of 90 HTML files and 48 lookbook/evolution/visual-collection references. Each entry retains its owning repository, source path, commit-pinned source URL, and current verification boundary. SHA-256 and live-deployment checks remain pending; this discovery register does not claim exhaustive coverage of private, unindexed, local, external, binary, or conversation-only artifacts.
