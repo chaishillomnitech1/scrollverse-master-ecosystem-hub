@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scrollverse.example/schemas/canon-event.schema.json",
+  "title": "ScrollVerse Canon Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "created_at",
+    "stage",
+    "proposed_by",
+    "source_artifact",
+    "version",
+    "statement"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "stage": {
+      "enum": [
+        "proposal",
+        "review",
+        "authorized_decree",
+        "propagation",
+        "correction",
+        "rejection"
+      ]
+    },
+    "proposed_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewed_by": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authorized_by": {
+      "type": "string"
+    },
+    "source_artifact": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "statement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rationale": {
+      "type": "string"
+    },
+    "supersedes_event_id": {
+      "type": "string"
+    },
+    "affected_realms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "approval_reference": {
+      "type": "string"
+    },
+    "effective_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "stage": {
+            "const": "authorized_decree"
+          }
+        },
+        "required": [
+          "stage"
+        ]
+      },
+      "then": {
+        "required": [
+          "authorized_by",
+          "approval_reference"
+        ]
+      }
+    }
+  ]
+}
