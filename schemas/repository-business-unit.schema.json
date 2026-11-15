@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/chaishillomnitech1/scrollverse-master-ecosystem-hub/blob/main/schemas/repository-business-unit.schema.json",
+  "title": "ScrollVerse Repository Business Unit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "repository_name",
+    "repository_url",
+    "default_branch",
+    "operating_unit_id",
+    "unit_state",
+    "repository_type",
+    "brand_identity_state",
+    "product_catalog_state",
+    "revenue_attribution_state",
+    "payment_rails_state",
+    "legal_entity_state",
+    "public_commerce_state",
+    "evidence_source"
+  ],
+  "properties": {
+    "repository_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repository_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "default_branch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "operating_unit_id": {
+      "type": "string",
+      "pattern": "^SV-BU-[a-z0-9-]+$"
+    },
+    "unit_state": {
+      "enum": [
+        "catalogued_not_activated",
+        "active_business_unit",
+        "paused",
+        "retired"
+      ]
+    },
+    "repository_type": {
+      "type": "string"
+    },
+    "brand_identity_state": {
+      "enum": [
+        "preserve_existing_extend_without_overwrite",
+        "identity_review_required",
+        "identity_materials_verified"
+      ]
+    },
+    "product_catalog_state": {
+      "enum": [
+        "not_assessed",
+        "catalogue_in_preparation",
+        "catalogue_verified",
+        "published"
+      ]
+    },
+    "revenue_attribution_state": {
+      "enum": [
+        "not_assessed",
+        "internal_attribution_configured",
+        "reconciled_revenue_verified"
+      ]
+    },
+    "payment_rails_state": {
+      "enum": [
+        "not_assessed",
+        "provider_required",
+        "configured_unverified",
+        "live_settlement_verified"
+      ]
+    },
+    "legal_entity_state": {
+      "enum": [
+        "not_verified",
+        "business_unit_only",
+        "entity_formed_unverified",
+        "entity_and_authority_verified"
+      ]
+    },
+    "public_commerce_state": {
+      "enum": [
+        "not_assessed",
+        "private",
+        "readiness_only",
+        "public_catalogue",
+        "live_checkout_verified"
+      ]
+    },
+    "evidence_source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "legal_entity_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "jurisdiction": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tax_registration_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "settlement_account_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "revenue_policy_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "support_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "brand_asset_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
